@@ -1,0 +1,6 @@
+/*
+ * Toucan keyboard keymap wrapper
+ * Includes the board-agnostic base keymap
+ */
+
+#include "base.keymap"
