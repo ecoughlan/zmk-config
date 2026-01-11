@@ -52,15 +52,6 @@
               dts-format
               keymap-drawer
               pin-west
-
-              # -- Used by just_recipes and west_commands. Most systems already have them. --
-              # pkgs.gawk
-              # pkgs.unixtools.column
-              # pkgs.coreutils # cp, cut, echo, mkdir, sort, tail, tee, uniq, wc
-              # pkgs.diffutils
-              # pkgs.findutils # find, xargs
-              # pkgs.gnugrep
-              # pkgs.gnused
             ];
 
           env = {
