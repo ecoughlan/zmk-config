@@ -3,73 +3,57 @@ parse_config:
     - "modules/zmk/helpers/include"
 
   zmk_preamble: |
-    #include <zmk-helpers/key-labels/34.h>
-    #define CONFIG_WIRELESS
+    #include <zmk-helpers/key-labels/42.h>
 
   raw_binding_map:
     "&sys_reset": Reset
     "&bootloader": Boot
     "&caps_word": Caps Word
-    "&kp LA(F4)": Close
 
     "&bt BT_SEL 0": BT 1
     "&bt BT_SEL 1": BT 2
     "&bt BT_SEL 2": BT 3
     "&bt BT_SEL 3": BT 4
+    "&bt BT_CLR": BT Clr
 
     "&kp LC(INS)": Copy
     "&kp LC(X)": Cut
     "&kp LS(INS)": Paste
 
-    "&kp LG(LC(LEFT))": PDesk
-    "&kp LG(LC(RIGHT))": NDesk
-    "&kp LG(LC(LS(A)))": PinA.
-    "&kp LG(LC(LS(Q)))": PinW.
-
-    "&swapper": NWin
-    "&kp LS(TAB)": PWin
-    "&dot_spc": Sentence
-    "&num_dance": { "t": "Smart"}
-    "&magic_shift": { "t": Magic, "h": "Shift" }
     "&smart_mouse": Smart Mouse
+    "&smart_num": { "t": "Numword", "s": "Sticky Num" }
 
-    "&hml LS(LALT)TAB": Tab
-    "&hm_combo_ldr": Leader
-    "&hm_combo_ldrsh": Shift+Leader
-    "&hm_combo_lpar": { "t": "< (" }
-    "&hm_combo_rpar": { "t": "> )"}
-    "&kp LBKT": { "t": "{ ["}
-    "&kp RBKT": { "t": "} ]"}
+    "&quote_morph": { "t": "'", "s": '"' }
+    "&comma_morph": { "t": ",", "s": ";" }
+    "&dot_morph": { "t": ".", "s": ":" }
+    "&slash_morph": { "t": "/", "s": "\\" }
+    "&lpar_lt": { "t": "(", "s": "<" }
+    "&rpar_gt": { "t": ")", "s": ">" }
 
-    "&mmv MOVE_UP": Mouse ↑
-    "&mmv MOVE_DOWN": Mouse ↓
-    "&mmv MOVE_LEFT": Mouse ←
-    "&mmv MOVE_RIGHT": Mouse →
+    "&de_ae": { "t": "ä", "s": "Ä" }
+    "&de_oe": { "t": "ö", "s": "Ö" }
+    "&de_ue": { "t": "ü", "s": "Ü" }
+    "&de_ss": { "t": "ß", "s": "ẞ" }
+    "DE_EURO": "€"
+    "&sl INTL": Intl
 
-    "&msc SCRL_UP": Scroll ↑
-    "&msc SCRL_DOWN": Scroll ↓
-    "&msc SCRL_LEFT": Scroll ←
-    "&msc SCRL_RIGHT": Scroll →
+    "&mmv MOVE_UP": Mouse Up
+    "&mmv MOVE_DOWN": Mouse Down
+    "&mmv MOVE_LEFT": Mouse Left
+    "&mmv MOVE_RIGHT": Mouse Right
+
+    "&msc SCRL_UP": Scroll Up
+    "&msc SCRL_DOWN": Scroll Down
+    "&msc SCRL_LEFT": Scroll Left
+    "&msc SCRL_RIGHT": Scroll Right
 
     "&mkp LCLK": Left Click
     "&mkp RCLK": Right Click
     "&mkp MCLK": Middle Click
-    "&mkp MB4": Back Click
-    "&mkp MB5": Forward Click
 
   trans_legend: { "t": "", "type": "trans" }
 
-  zmk_combos:
-    combo_cut: { align: bottom, o: 0.15 }
-    combo_ldrsh: { align: top, o: 1.35 }
-
-    combo_lt: { hidden: true }
-    combo_gt: { hidden: true }
-    combo_lbrc: { hidden: true }
-    combo_rbrc: { hidden: true }
-
   zmk_keycode_map:
-    # custom mappings
     LALT: Alt
     RALT: Alt
     LCTRL: Ctrl
@@ -92,21 +76,26 @@ parse_config:
     HOME: Home
     END: End
 
-    UP: ↑
-    DOWN: ↓
-    LEFT: ←
-    RIGHT: →
+    UP: Up
+    DOWN: Down
+    LEFT: Left
+    RIGHT: Right
 
-    K_CANCEL: Cancel
+    C_MUTE: Mute
+    C_PP: Play
+    C_VOL_UP: Vol+
+    C_VOL_DN: Vol-
+    C_NEXT: Next
+    C_PREV: Prev
+    C_STOP: Stop
 
-    C_MUTE: $$mdi:volume-off$$
-    C_PP: $$mdi:play-pause$$
-    C_VOL_UP: $$mdi:volume-high$$
-    C_VOL_DN: $$mdi:volume-medium$$
-    C_NEXT: $$mdi:skip-forward$$
-    C_PREV: $$mdi:skip-backward$$
+    PSCRN: PrtSc
+    SLCK: ScrLk
+    CLCK: CapsLk
+    KP_NLCK: NumLk
+    PAUSE_BREAK: Pause
+    K_APP: Menu
 
-    # defaults
     AMPERSAND: "&"
     AMPS: "&"
     APOS: "'"
@@ -114,7 +103,6 @@ parse_config:
     ASTERISK: "*"
     ASTRK: "*"
     AT: "@"
-    AT_SIGN: "@"
     BACKSLASH: \
     BSLH: \
     CARET: ^
@@ -127,147 +115,38 @@ parse_config:
     DQT: '"'
     EQUAL: "="
     EXCL: "!"
-    EXCLAMATION: "!"
     FSLH: /
     GRAVE: "`"
-    GREATER_THAN: ">"
     GT: ">"
     HASH: "#"
     LBKT: "["
     LBRC: "{"
-    LEFT_BRACE: "{"
-    LEFT_BRACKET: "["
-    LEFT_PARENTHESIS: (
-    LESS_THAN: <
     LPAR: (
     LT: <
     MINUS: "-"
-    NON_US_BACKSLASH: \
-    NON_US_BSLH: "|"
-    NON_US_HASH: "#"
-    NUHS: "#"
     PERCENT: "%"
-    PERIOD: .
-    PIPE: "|"
-    PIPE2: "|"
-    PLUS: +
-    POUND: "#"
     PRCNT: "%"
+    PIPE: "|"
+    PLUS: +
     QMARK: "?"
-    QUESTION: "?"
     RBKT: "]"
     RBRC: "}"
-    RIGHT_BRACE: "}"
-    RIGHT_BRACKET: "]"
-    RIGHT_PARENTHESIS: )
     RPAR: )
     SEMI: ;
     SEMICOLON: ;
-    SINGLE_QUOTE: "'"
-    SLASH: /
     SQT: "'"
     STAR: "*"
     TILDE: "~"
-    TILDE2: "~"
     UNDER: _
-    UNDERSCORE: _
+
+  # Override combo drawing for non-adjacent combos
+  zmk_combos:
+    cut:
+      align: top
+      dendron: true
+      offset: 0.2
 
 draw_config:
   append_colon_to_layer_header: false
-  dark_mode: false
-  footer_text: "urob/zmk-config"
-  glyph_tap_size: 15
-  glyph_hold_size: 12
-  glyph_shifted_size: 10
-  legend_rel_y: 1
-  outer_pad_w: 10
-  outer_pad_h: 10
-  small_pad: 4
-
-  svg_style: |
-    svg path { fill: inherit; }
-
-    svg.keymap {
-        --color-bg:      #7c6f64;
-        --color-key:     #fbf1c7;
-        --color-text:    #3c3836;
-        --color-ghost:   #928374;
-        --color-dendron: #d5c4a1;
-        --color-held:    #bdae93;
-
-        --color-fn:      #458588;
-        --color-nav:     #d79921;
-        --color-num:     #d65d0e;
-        --color-sys:     #689d6a;
-
-        fill: var(--color-text);
-        background-color: var(--color-bg);
-        font-family: Calibri, system-ui, sans-serif;
-        font-size: 16px;
-        font-kerning: normal;
-        text-rendering: optimizeLegibility;
-    }
-
-    text {
-        text-anchor: middle;
-        dominant-baseline: middle;
-        letter-spacing: 0.02em;
-    }
-
-    text.tap     { font-weight: 500; }
-    text.hold    { font-weight: 400; font-size: 13px; }
-    text.shifted { font-weight: 400; font-size: 11px; }
-    text.combo, text.left, text.right, text.tl, text.tr, text.bl, text.br { font-size: 10px; }
-
-    text.hold, text.bl, text.br    { text-anchor: middle; dominant-baseline: auto; }
-    text.shifted, text.tl, text.tr { text-anchor: middle; dominant-baseline: hanging; }
-    text.left, text.tl, text.bl    { text-anchor: start; }
-    text.right, text.tr, text.br   { text-anchor: end; }
-
-    text.layer-activator { text-decoration: underline; }
-    text.combo.hold, text.combo.shifted, text.combo.left, text.combo.right { font-size: 8px; }
-
-    text.label, text.footer {
-        fill: var(--color-key);
-        stroke: var(--color-bg);
-        stroke-width: 4;
-        paint-order: stroke;
-    }
-    text.label  { font-weight: bold; text-anchor: start; }
-    text.footer { text-anchor: end; dominant-baseline: auto; }
-
-    rect.key, rect.combo, rect.combo-separate { fill: var(--color-key); stroke-width: 0; }
-    rect.held, rect.combo.held                { fill: var(--color-held); }
-    .layer-Combos rect.key                    { fill: var(--color-ghost); }
-
-    path.combo { stroke: var(--color-dendron); stroke-width: 2; stroke-dasharray: 2, 3; opacity: 0.45; fill: none; }
-
-    text.tl, use.tl { fill: var(--color-fn); }
-    text.tr, use.tr { fill: var(--color-nav); }
-    text.bl, use.bl { fill: var(--color-num); }
-    text.br, use.br { fill: var(--color-sys); }
-
-    .keypos-30 text.hold { fill: var(--color-nav); }
-    .keypos-31 text.hold { fill: var(--color-fn); }
-    .keypos-32 text.hold { fill: var(--color-num); font-size: 15px; }
-    .keypos-32 text.tap  { fill: var(--color-num); }
-    .keypos-33 text.hold { font-size: 15px; }
-
-    .icon-tabler > path                             { fill: inherit; stroke: inherit; stroke-width: 2; }
-    .icon-tabler > path[stroke="none"][fill="none"] { visibility: hidden; }
-
-    @media (prefers-color-scheme: dark) {
-        svg.keymap {
-            --color-bg:      #a89984;
-            --color-key:     #282828;
-            --color-text:    #ebdbb2;
-            --color-ghost:   #928374;
-            --color-dendron: #504945;
-            --color-held:    #665c54;
-
-            --color-fn:      #458588;
-            --color-nav:     #fabd2f;
-            --color-num:     #d65d0e;
-            --color-sys:     #689d6a;
-        }
-    }
+  dark_mode: auto
+  footer_text: "Toucan Dvorak"
