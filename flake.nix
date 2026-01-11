@@ -48,6 +48,8 @@
             ];
 
           env = {
+            # CMake 4.x rejects Zephyr 4.1's FindZephyr-sdk check when this is unset.
+            ZEPHYR_TOOLCHAIN_VARIANT = "zephyr";
             PYTHONPATH = "${zephyr.pythonEnv}/${zephyr.pythonEnv.sitePackages}";
           };
 
