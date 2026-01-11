@@ -55,13 +55,15 @@ clean-all: clean
 clean-nix:
     nix-collect-garbage --delete-old
 
-# parse & plot keymap
+# parse & plot keymap (3x6+3 split = 42 keys)
 draw:
     #!/usr/bin/env bash
     set -euo pipefail
     keymap -c "{{ draw }}/config.yaml" parse -z "{{ config }}/base.keymap" --virtual-layers Combos >"{{ draw }}/base.yaml"
     yq -Yi '.combos.[].l = ["Combos"]' "{{ draw }}/base.yaml"
-    keymap -c "{{ draw }}/config.yaml" draw "{{ draw }}/base.yaml" -k "ferris/sweep" >"{{ draw }}/base.svg"
+    # Add dendrons for non-adjacent combos (Cut: Q+K skips J)
+    yq -Yi '(.combos[] | select(.p == [26, 28])) += {"a": "top", "d": true, "o": 0.2}' "{{ draw }}/base.yaml"
+    keymap -c "{{ draw }}/config.yaml" draw "{{ draw }}/base.yaml" -n "333333+3 3+333333" >"{{ draw }}/base.svg"
 
 # initialize west
 init:

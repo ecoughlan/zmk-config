@@ -3,8 +3,7 @@ parse_config:
     - "modules/zmk/helpers/include"
 
   zmk_preamble: |
-    #include <zmk-helpers/key-labels/34.h>
-    #define CONFIG_WIRELESS
+    #include <zmk-helpers/key-labels/42.h>
 
   raw_binding_map:
     "&sys_reset": Reset
@@ -15,60 +14,46 @@ parse_config:
     "&bt BT_SEL 1": BT 2
     "&bt BT_SEL 2": BT 3
     "&bt BT_SEL 3": BT 4
+    "&bt BT_CLR": BT Clr
 
     "&kp LC(INS)": Copy
     "&kp LC(X)": Cut
     "&kp LS(INS)": Paste
 
-    "&kp LG(LC(LEFT))": Prev Desk
-    "&kp LG(LC(RIGHT))": Next Desk
-    "&kp LG(LC(LS(A)))": Pin App
-    "&kp LG(LC(LS(Q)))": Pin Win
-
-    "&swapper": Next Win
-    "&kp LS(TAB)": Prev Win
-    "&dot_spc": Sentence
-    "&num_dance": { "t": "Numword", "s": "Sticky Num" }
-    "&magic_shift": { "t": Magic, "h": "Shift" }
     "&smart_mouse": Smart Mouse
+    "&smart_num": { "t": "Numword", "s": "Sticky Num" }
 
-    "&hml LS(LALT)TAB": Tab
-    "&hm_combo_ldr": Leader
-    "&hm_combo_ldrsh": Shift+Leader
-    "&hm_combo_lpar": { "t": "(", "right": "<" }
-    "&hm_combo_rpar": { "t": ")", "right": ">" }
-    "&kp LBKT": { "t": "[", "right": "{" }
-    "&kp RBKT": { "t": "]", "right": "}" }
+    "&quote_morph": { "t": "'", "s": '"' }
+    "&comma_morph": { "t": ",", "s": ";" }
+    "&dot_morph": { "t": ".", "s": ":" }
+    "&slash_morph": { "t": "/", "s": "\\" }
+    "&lpar_lt": { "t": "(", "s": "<" }
+    "&rpar_gt": { "t": ")", "s": ">" }
 
-    "&mmv MOVE_UP": Mouse ↑
-    "&mmv MOVE_DOWN": Mouse ↓
-    "&mmv MOVE_LEFT": Mouse ←
-    "&mmv MOVE_RIGHT": Mouse →
+    "&de_ae": { "t": "ä", "s": "Ä" }
+    "&de_oe": { "t": "ö", "s": "Ö" }
+    "&de_ue": { "t": "ü", "s": "Ü" }
+    "&de_ss": { "t": "ß", "s": "ẞ" }
+    "DE_EURO": "€"
+    "&sl INTL": Intl
 
-    "&msc SCRL_UP": Scroll ↑
-    "&msc SCRL_DOWN": Scroll ↓
-    "&msc SCRL_LEFT": Scroll ←
-    "&msc SCRL_RIGHT": Scroll →
+    "&mmv MOVE_UP": Mouse Up
+    "&mmv MOVE_DOWN": Mouse Down
+    "&mmv MOVE_LEFT": Mouse Left
+    "&mmv MOVE_RIGHT": Mouse Right
+
+    "&msc SCRL_UP": Scroll Up
+    "&msc SCRL_DOWN": Scroll Down
+    "&msc SCRL_LEFT": Scroll Left
+    "&msc SCRL_RIGHT": Scroll Right
 
     "&mkp LCLK": Left Click
     "&mkp RCLK": Right Click
     "&mkp MCLK": Middle Click
-    "&mkp MB4": Back Click
-    "&mkp MB5": Forward Click
 
   trans_legend: { "t": "", "type": "trans" }
 
-  zmk_combos:
-    combo_cut: { align: bottom, o: 0.15 }
-    combo_ldrsh: { align: top, o: 1.35 }
-
-    combo_lt: { hidden: true }
-    combo_gt: { hidden: true }
-    combo_lbrc: { hidden: true }
-    combo_rbrc: { hidden: true }
-
   zmk_keycode_map:
-    # custom mappings
     LALT: Alt
     RALT: Alt
     LCTRL: Ctrl
@@ -91,19 +76,26 @@ parse_config:
     HOME: Home
     END: End
 
-    UP: ↑
-    DOWN: ↓
-    LEFT: ←
-    RIGHT: →
+    UP: Up
+    DOWN: Down
+    LEFT: Left
+    RIGHT: Right
 
-    C_MUTE: $$mdi:volume-off$$
-    C_PP: $$mdi:play-pause$$
-    C_VOL_UP: $$mdi:volume-high$$
-    C_VOL_DN: $$mdi:volume-medium$$
-    C_NEXT: $$mdi:skip-forward$$
-    C_PREV: $$mdi:skip-backward$$
+    C_MUTE: Mute
+    C_PP: Play
+    C_VOL_UP: Vol+
+    C_VOL_DN: Vol-
+    C_NEXT: Next
+    C_PREV: Prev
+    C_STOP: Stop
 
-    # defaults
+    PSCRN: PrtSc
+    SLCK: ScrLk
+    CLCK: CapsLk
+    KP_NLCK: NumLk
+    PAUSE_BREAK: Pause
+    K_APP: Menu
+
     AMPERSAND: "&"
     AMPS: "&"
     APOS: "'"
@@ -111,7 +103,6 @@ parse_config:
     ASTERISK: "*"
     ASTRK: "*"
     AT: "@"
-    AT_SIGN: "@"
     BACKSLASH: \
     BSLH: \
     CARET: ^
@@ -124,52 +115,38 @@ parse_config:
     DQT: '"'
     EQUAL: "="
     EXCL: "!"
-    EXCLAMATION: "!"
     FSLH: /
     GRAVE: "`"
-    GREATER_THAN: ">"
     GT: ">"
     HASH: "#"
     LBKT: "["
     LBRC: "{"
-    LEFT_BRACE: "{"
-    LEFT_BRACKET: "["
-    LEFT_PARENTHESIS: (
-    LESS_THAN: <
     LPAR: (
     LT: <
     MINUS: "-"
-    NON_US_BACKSLASH: \
-    NON_US_BSLH: "|"
-    NON_US_HASH: "#"
-    NUHS: "#"
     PERCENT: "%"
-    PERIOD: .
-    PIPE: "|"
-    PIPE2: "|"
-    PLUS: +
-    POUND: "#"
     PRCNT: "%"
+    PIPE: "|"
+    PLUS: +
     QMARK: "?"
-    QUESTION: "?"
     RBKT: "]"
     RBRC: "}"
-    RIGHT_BRACE: "}"
-    RIGHT_BRACKET: "]"
-    RIGHT_PARENTHESIS: )
     RPAR: )
     SEMI: ;
     SEMICOLON: ;
-    SINGLE_QUOTE: "'"
-    SLASH: /
     SQT: "'"
     STAR: "*"
     TILDE: "~"
-    TILDE2: "~"
     UNDER: _
-    UNDERSCORE: _
+
+  # Override combo drawing for non-adjacent combos
+  zmk_combos:
+    cut:
+      align: top
+      dendron: true
+      offset: 0.2
 
 draw_config:
   append_colon_to_layer_header: false
   dark_mode: auto
-  footer_text: "urob/zmk-config"
+  footer_text: "Toucan Dvorak"
