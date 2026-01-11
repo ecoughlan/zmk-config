@@ -4,12 +4,17 @@
 #include <zephyr/kernel.h>
 #include "util.h"
 
+/* Use L8 (8-bit grayscale) - smallest format that supports canvas drawing in LVGL v9 */
+#define CANVAS_COLOR_FORMAT LV_COLOR_FORMAT_L8
+/* Buffer size: width * height * 1 byte per pixel */
+#define CANVAS_BUF_SIZE (SCREEN_WIDTH * SCREEN_HEIGHT)
+
 struct zmk_widget_screen {
     sys_snode_t node;
     lv_obj_t *obj;
-    lv_color_t cbuf[SCREEN_WIDTH * SCREEN_HEIGHT];
-    lv_color_t cbuf2[SCREEN_WIDTH * SCREEN_HEIGHT];
-    lv_color_t cbuf3[SCREEN_WIDTH * SCREEN_HEIGHT];
+    uint8_t cbuf[CANVAS_BUF_SIZE];
+    uint8_t cbuf2[CANVAS_BUF_SIZE];
+    uint8_t cbuf3[CANVAS_BUF_SIZE];
     struct status_state state;
 };
 
