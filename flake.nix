@@ -2,8 +2,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    # This pins requirements.txt provided by zephyr-nix.pythonEnv.
-    zephyr.url = "github:zmkfirmware/zephyr/v3.5.0+zmk-fixes";
+    # Pin to ZMK's zephyr fork (v4.1.0+zmk-fixes branch)
+    zephyr.url = "github:zmkfirmware/zephyr/ec36516990d40355238db3049bc1709191f99b4e";
     zephyr.flake = false;
 
     # Zephyr sdk and toolchain.
