@@ -102,11 +102,6 @@ init:
 sync:
     west update --fetch-opt=--filter=blob:none
 
-# bump west manifest and re-sync the workspace
-[group('workspace')]
-bump-west: && sync
-    pin-west bump
-
 # bump nix toolchain (flake.lock)
 [group('workspace')]
 bump-nix:

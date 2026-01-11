@@ -10,11 +10,6 @@
     zephyr-nix.url = "github:nix-community/zephyr-nix";
     zephyr-nix.inputs.zephyr.follows = "zephyr";
     zephyr-nix.inputs.nixpkgs.follows = "nixpkgs";
-
-    # West manifest locking; skipping the flake to build its package.nix with
-    # our own nixpkgs and python package set.
-    pin-west.url = "github:urob/pin-west";
-    pin-west.flake = false;
   };
 
   outputs = inputs @ { nixpkgs, ... }: let
@@ -26,7 +21,6 @@
         pkgs = nixpkgs.legacyPackages.${system};
         zephyr = inputs.zephyr-nix.packages.${system};
         keymap-drawer = pkgs.python3Packages.callPackage ./nix/keymap-drawer.nix {};
-        pin-west = pkgs.python3Packages.callPackage "${inputs.pin-west}/package.nix" {};
         dts-format = pkgs.callPackage ./nix/dts-format.nix {
           dts-linter = pkgs.callPackage ./nix/dts-linter.nix {
             # Uncomment to build against the pinned dts-lsp instead of the
@@ -51,7 +45,6 @@
 
               dts-format
               keymap-drawer
-              pin-west
             ];
 
           env = {

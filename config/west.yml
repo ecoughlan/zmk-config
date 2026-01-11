@@ -1,115 +1,58 @@
-# This file specifies the build dependencies for Github Action workflows and
-# for local build environments. The workspace has four toplevel directories
-# containing the user config, modules, zephy and ZMK.
+# West manifest for Toucan ZMK configuration
+# Merges: ZMK core, Toucan shield, urob's modules, Cirque trackpad support
 #
-# ZMK-Workspace
-# ├── config
-# ├── modules
-# ├── zephyr
-# └── zmk
-#
-# To create a local build environment, clone this repository and then run the
-# following commands from its toplevel directory:
+# Everything tracks branches (no pinned revisions). The workspace has four
+# toplevel directories (config, modules, zephyr, zmk); create it with:
 #
 # $ west init -l config
 # $ west update
 # $ west zephyr-export
-#
-# This mainifest is maintained using pin-west. Run `pin-west bump` to update
-# all packages.
 ---
 manifest:
   defaults:
     remote: urob
-
+    revision: main
+  # nanopb (ZMK Studio) lives in Zephyr's optional group
+  group-filter: [+optional]
   remotes:
-    - name: urob
-      url-base: https://github.com/urob
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-
+    - name: urob
+      url-base: https://github.com/urob
+    - name: ecoughlan
+      url-base: https://github.com/ecoughlan
   projects:
+    # Core ZMK - main branch for ZMK Studio and latest features
     - name: zmk
       remote: zmkfirmware
-      revision: 4de313367288aad5aeaa1243890e40dc813f7008 # main (2026-11-16)
+      revision: main
       import: app/west.yml
-
-    # ZMK modules
-    - name: zmk-adaptive-key
-      path: modules/zmk/adaptive-key
-      revision: e987227d625e8863343baf16bd11ff90310482a5 # main (2026-10-19)
-    - name: zmk-auto-layer
-      path: modules/zmk/auto-layer
-      revision: b50d514219c5ad61198f9a8be137c59d0674b11c # main (2026-10-19)
+    # Toucan shield definitions (fork with LVGL v9 fixes)
+    - name: zmk-keyboard-toucan
+      remote: ecoughlan
+      revision: main
+    # Note: Cirque trackpad support is built into Zephyr (cirque,pinnacle)
+    # urob's ZMK modules for advanced behaviors
     - name: zmk-helpers
       path: modules/zmk/helpers
-      revision: 7bcba18fc8df27303eb92a435d33ea870cc51f98 # main (2026-10-19)
-    - name: zmk-leader-key
-      path: modules/zmk/leader-key
-      revision: 4745294d5f2bc12bbdf91471dd85bfbdbb35c47d # main (2026-10-19)
+    - name: zmk-auto-layer
+      path: modules/zmk/auto-layer
     - name: zmk-tri-state
       path: modules/zmk/tri-state
-      revision: c08969627245adeddbcdb6dfc1a4c167c04160e2 # main (2026-10-19)
-    - name: zmk-unicode
-      path: modules/zmk/unicode
-      revision: a1ee16236de5f912a57cd4fe619b0d63b94ea9e5 # main (2026-11-09)
-
     # Avoid downloading GBs of unused Zephyr modules. Remove this section to
     # restore the default (needed for less common hardware).
     - name: zephyr
       remote: zmkfirmware
-      revision: 10ba6d0cb38bc3d258775d27982f707599320085 # v4.1.0+zmk-fixes (2026-08-18)
+      revision: v4.1.0+zmk-fixes
       clone-depth: 1
       import:
         name-allowlist:
           - cmsis
           - hal_nordic
-          - hal_rpi_pico
           - hal_stm32  # imported independently by ZMK
           - lvgl  # imported independently by ZMK
           - mbedtls
+          - nanopb  # ZMK Studio
           - tinycrypt
-
-    # --- imported projects pinned by pin-west; do not edit ---
-    - name: cmsis # via zephyr (west.yml)
-      url: https://github.com/zephyrproject-rtos/cmsis
-      revision: d1b8b20b6278615b00e136374540eb1c00dcabe7
-      path: modules/hal/cmsis
-      groups: [hal]
-    - name: hal_nordic # via zephyr (west.yml)
-      url: https://github.com/zephyrproject-rtos/hal_nordic
-      revision: 37ca068d7b013fb65a2acc9306bffa48a3e72839
-      path: modules/hal/nordic
-      groups: [hal]
-    - name: hal_rpi_pico # via zephyr (west.yml)
-      url: https://github.com/zephyrproject-rtos/hal_rpi_pico
-      revision: 7b57b24588797e6e7bf18b6bda168e6b96374264
-      path: modules/hal/rpi_pico
-      groups: [hal]
-    - name: hal_stm32 # via zmk (app/west.yml)
-      url: https://github.com/zmkfirmware/hal_stm32
-      revision: 4fcc3a3f32abe1c4cb76d9d1cef967728dd03908
-      path: modules/hal/stm32
-      groups: [hal]
-    - name: lvgl # via zmk (app/west.yml)
-      url: https://github.com/zmkfirmware/lvgl
-      revision: f1db87ee98f1810328a8419572fa42a3b5f352ae
-      path: modules/lib/gui/lvgl
-    - name: mbedtls # via zephyr (west.yml)
-      url: https://github.com/zephyrproject-rtos/mbedtls
-      revision: 4952e1328529ee549d412b498ea71c54f30aa3b1
-      path: modules/crypto/mbedtls
-      groups: [crypto]
-    - name: tinycrypt # via zephyr (west.yml)
-      url: https://github.com/zephyrproject-rtos/tinycrypt
-      revision: 1012a3ebee18c15ede5efc8332ee2fc37817670f
-      path: modules/crypto/tinycrypt
-      groups: [crypto]
-    - name: zmk-studio-messages # via zmk (app/west.yml)
-      url: https://github.com/zmkfirmware/zmk-studio-messages
-      revision: 6cb4c283e76209d59c45fbcb218800cd19e9339d
-      path: modules/msgs/zmk-studio-messages
-    # --- end of imported projects ---
-
   self:
     path: config
