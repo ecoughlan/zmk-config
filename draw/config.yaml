@@ -21,21 +21,25 @@ parse_config:
     "&kp LS(INS)": Paste
 
     "&smart_mouse": Smart Mouse
-    "&smart_num": { "t": "Numword", "s": "Sticky Num" }
-
-    "&quote_morph": { "t": "'", "s": '"' }
-    "&comma_morph": { "t": ",", "s": ";" }
-    "&dot_morph": { "t": ".", "s": ":" }
-    "&slash_morph": { "t": "/", "s": "\\" }
-    "&lpar_lt": { "t": "(", "s": "<" }
-    "&rpar_gt": { "t": ")", "s": ">" }
+    "&leader": Leader
+    "&leader_sft": Shift+Leader
+    "&smart_num NUM 0": { "t": "Numword", "h": "NUM", "s": "Sticky" }
+    "&smart_spc NAV 0": { "t": "Spc", "h": "NAV", "s": "Sticky ⇧" }
+    "&smart_tab MOUSE 0": { "t": "Tab", "h": "MOUSE", "s": "Del" }
+    "&kp SLASH": "/"
+    "&lt FUN BSPC": { "t": "Bspc", "h": "FUN" }
 
     "&de_ae": { "t": "ä", "s": "Ä" }
     "&de_oe": { "t": "ö", "s": "Ö" }
     "&de_ue": { "t": "ü", "s": "Ü" }
     "&de_ss": { "t": "ß", "s": "ẞ" }
     "DE_EURO": "€"
-    "&sl INTL": Intl
+    "&sl MEDIA": { "t": "Media", "type": "layer-activator" }
+
+    "&to BASE": { "t": "Dvorak", "type": "layer-activator" }
+    "&to QWERTY": { "t": "Qwerty", "type": "layer-activator" }
+    "&to GAME": { "t": "Game", "type": "layer-activator" }
+    "&gnum_sft GNUM LSHFT": { "t": "Sticky ⇧", "h": "GNUM", "s": "Hold ⇧" }
 
     "&mmv MOVE_UP": Mouse Up
     "&mmv MOVE_DOWN": Mouse Down
@@ -55,7 +59,7 @@ parse_config:
 
   zmk_keycode_map:
     LALT: Alt
-    RALT: Alt
+    RALT: RAlt
     LCTRL: Ctrl
     RCTRL: Ctrl
     LGUI: Gui
@@ -76,18 +80,18 @@ parse_config:
     HOME: Home
     END: End
 
-    UP: Up
-    DOWN: Down
-    LEFT: Left
-    RIGHT: Right
+    UP: ↑
+    DOWN: ↓
+    LEFT: ←
+    RIGHT: →
 
-    C_MUTE: Mute
-    C_PP: Play
-    C_VOL_UP: Vol+
-    C_VOL_DN: Vol-
-    C_NEXT: Next
-    C_PREV: Prev
-    C_STOP: Stop
+    C_MUTE: $$mdi:volume-off$$
+    C_PP: $$mdi:play-pause$$
+    C_VOL_UP: $$mdi:volume-high$$
+    C_VOL_DN: $$mdi:volume-medium$$
+    C_NEXT: $$mdi:skip-forward$$
+    C_PREV: $$mdi:skip-backward$$
+    C_STOP: $$mdi:stop$$
 
     PSCRN: PrtSc
     SLCK: ScrLk
@@ -139,14 +143,17 @@ parse_config:
     TILDE: "~"
     UNDER: _
 
-  # Override combo drawing for non-adjacent combos
+  # Override combo drawing
   zmk_combos:
-    cut:
-      align: top
+    combo_cut:
+      align: bottom
+      offset: 0.15
+    combo_ldrsh:
+      align: bottom
       dendron: true
-      offset: 0.2
 
 draw_config:
   append_colon_to_layer_header: false
   dark_mode: auto
-  footer_text: "Toucan Dvorak"
+  shrink_wide_legends: 6
+  footer_text: "Toucan Endgame"

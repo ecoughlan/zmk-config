@@ -35,6 +35,10 @@ manifest:
       path: modules/zmk/auto-layer
     - name: zmk-tri-state
       path: modules/zmk/tri-state
+    - name: zmk-leader-key
+      path: modules/zmk/leader-key
+    - name: zmk-unicode
+      path: modules/zmk/unicode
 
   self:
     path: config

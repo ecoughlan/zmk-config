@@ -21,11 +21,17 @@
         pkgs = nixpkgs.legacyPackages.${system};
         zephyr = zephyr-nix.packages.${system};
         keymap_drawer = pkgs.python3Packages.callPackage ./nix/keymap-drawer.nix {};
+        # Extra Python packages for nanopb/ZMK Studio protobuf support
+        pythonProto = pkgs.python3.withPackages (ps: with ps; [
+          protobuf
+          grpcio-tools
+        ]);
       in {
         default = pkgs.mkShellNoCC {
           packages =
             [
               zephyr.pythonEnv
+              pythonProto
               (zephyr.sdk-0_16.override {targets = ["arm-zephyr-eabi"];})
 
               pkgs.cmake
@@ -40,7 +46,8 @@
             ];
 
           env = {
-            PYTHONPATH = "${zephyr.pythonEnv}/${zephyr.pythonEnv.sitePackages}";
+            # Put pythonProto FIRST so its protobuf 6.x overrides zephyr's older version
+            PYTHONPATH = "${pythonProto}/${pythonProto.sitePackages}:${zephyr.pythonEnv}/${zephyr.pythonEnv.sitePackages}";
           };
 
           shellHook = ''

@@ -1,0 +1,214 @@
+layout: {zmk_keyboard: base}
+layers:
+  Base:
+    - ''
+    - ''''
+    - ','
+    - .
+    - P
+    - Y
+    - F
+    - G
+    - C
+    - R
+    - L
+    - ''
+    - ''
+    - {t: A, h: Gui}
+    - {t: O, h: Alt}
+    - {t: E, h: Ctrl}
+    - {t: U, h: Shift}
+    - I
+    - D
+    - {t: H, h: Shift}
+    - {t: T, h: Ctrl}
+    - {t: N, h: Alt}
+    - {t: S, h: Gui}
+    - ''
+    - ''
+    - /
+    - Q
+    - J
+    - K
+    - X
+    - B
+    - M
+    - W
+    - V
+    - Z
+    - ''
+    - {t: Esc, h: Intl}
+    - {t: Spc, h: NAV, s: Sticky ⇧}
+    - {t: Tab, h: MOUSE, s: Del}
+    - {t: Enter, h: Sym}
+    - {t: Numword, h: NUM, s: Sticky}
+    - {t: Bspc, h: FUN}
+  Num:
+    - ''
+    - '['
+    - '7'
+    - '8'
+    - '9'
+    - ']'
+    - {type: trans}
+    - {t: Shift, h: sticky}
+    - {t: Ctrl, h: sticky}
+    - {t: RAlt, h: sticky}
+    - {t: Gui, h: sticky}
+    - ''
+    - ''
+    - ;
+    - '4'
+    - '5'
+    - '6'
+    - '='
+    - Numpad
+    - {t: Shift, h: sticky}
+    - {t: Ctrl, h: sticky}
+    - {t: Alt, h: sticky}
+    - {t: Gui, h: sticky}
+    - ''
+    - ''
+    - '`'
+    - '1'
+    - '2'
+    - '3'
+    - \
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - ''
+    - .
+    - '0'
+    - '-'
+    - {type: trans}
+    - {type: held}
+    - {type: trans}
+  Sym:
+    - ''
+    - '{'
+    - '&'
+    - '*'
+    - (
+    - '}'
+    - {type: trans}
+    - {t: Shift, h: sticky}
+    - {t: Ctrl, h: sticky}
+    - {t: RAlt, h: sticky}
+    - {t: Gui, h: sticky}
+    - ''
+    - ''
+    - ':'
+    - $
+    - '%'
+    - ^
+    - +
+    - {t: Media, type: layer-activator}
+    - {t: Shift, h: sticky}
+    - {t: Ctrl, h: sticky}
+    - {t: Alt, h: sticky}
+    - {t: Gui, h: sticky}
+    - ''
+    - ''
+    - '~'
+    - '!'
+    - '@'
+    - '#'
+    - '|'
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - ''
+    - (
+    - )
+    - _
+    - {type: held}
+    - {type: trans}
+    - {type: trans}
+  Combos:
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+combos:
+  - p: [1, 2]
+    k: Esc
+    l: [Combos]
+  - p: [2, 3]
+    k: Smart Mouse
+    l: [Combos]
+  - p: [13, 14]
+    k: Tab
+    l: [Combos]
+  - p: [14, 15]
+    k: Leader
+    l: [Combos]
+  - p: [13, 14, 15]
+    k: Shift+Leader
+    l: [Combos]
+    a: bottom
+    d: true
+  - p: [7, 8]
+    k: Bspc
+    l: [Combos]
+  - p: [8, 9]
+    k: Del
+    l: [Combos]
+  - p: [16, 19]
+    k: Caps Word
+    l: [Combos]
+  - p: [26, 27]
+    k: Copy
+    l: [Combos]
+  - p: [26, 28]
+    k: Cut
+    l: [Combos]
+    a: bottom
+    o: 0.15
+  - p: [27, 28]
+    k: Paste
+    l: [Combos]
+draw_config:
+  n_columns: 2
