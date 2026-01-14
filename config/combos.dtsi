@@ -31,6 +31,15 @@ ZMK_COMBO(esc,   &kp ESC,       1  2,  BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE
 // , + . = smart mouse toggle (top row, left ring + middle)
 ZMK_COMBO(mouse, &smart_mouse,  2  3,  BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
+// A + O = TAB (home row, left pinky + ring)
+ZMK_COMBO(tab,   &kp TAB,      13 14,  BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+
+// O + E = Leader (home row, left ring + middle)
+ZMK_COMBO(ldr,   &leader,      14 15,  BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+
+// A + O + E = Shift + Leader (home row, left 3 fingers)
+ZMK_COMBO(ldrsh, &leader_sft,  13 14 15, BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+
 /* Horizontal combos - right hand */
 
 // G + C = BSPC (top row, right index + middle)
@@ -38,18 +47,6 @@ ZMK_COMBO(bspc,  &kp BSPC,      7  8,  BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE
 
 // C + R = DEL (top row, right middle + ring)
 ZMK_COMBO(del,   &kp DEL,       8  9,  BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-
-// H + T = ( (home row, right index + middle)
-ZMK_COMBO(lpar,  &lpar_lt,     19 20,  BASE     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-
-// T + N = ) (home row, right middle + ring)
-ZMK_COMBO(rpar,  &rpar_gt,     20 21,  BASE     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-
-// M + W = [ (bottom row, right index + middle)
-ZMK_COMBO(lbkt,  &kp LBKT,     31 32,  BASE     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-
-// W + V = ] (bottom row, right middle + ring)
-ZMK_COMBO(rbkt,  &kp RBKT,     32 33,  BASE     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
 /* Caps word - both inner home row keys (U + H) */
 ZMK_COMBO(caps,  &caps_word,   16 19,  BASE,         COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
