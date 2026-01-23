@@ -25,14 +25,8 @@
 
 /* Horizontal combos - left hand */
 
-// ' + , = ESC (top row, left pinky + ring)
-ZMK_COMBO(esc,   &kp ESC,       1  2,  BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-
 // , + . = smart mouse toggle (top row, left ring + middle)
 ZMK_COMBO(mouse, &smart_mouse,  2  3,  BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-
-// A + O = TAB (home row, left pinky + ring)
-ZMK_COMBO(tab,   &kp TAB,      13 14,  BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
 // O + E = Leader (home row, left ring + middle)
 ZMK_COMBO(ldr,   &leader,      14 15,  BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
@@ -40,24 +34,16 @@ ZMK_COMBO(ldr,   &leader,      14 15,  BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE
 // A + O + E = Shift + Leader (home row, left 3 fingers)
 ZMK_COMBO(ldrsh, &leader_sft,  13 14 15, BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
-/* Horizontal combos - right hand */
-
-// G + C = BSPC (top row, right index + middle)
-ZMK_COMBO(bspc,  &kp BSPC,      7  8,  BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-
-// C + R = DEL (top row, right middle + ring)
-ZMK_COMBO(del,   &kp DEL,       8  9,  BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-
 /* Caps word - both inner home row keys (U + H) */
 ZMK_COMBO(caps,  &caps_word,   16 19,  BASE,         COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
 
-/* Cut/Copy/Paste - left bottom row */
+/* Cut/Copy/Paste - right bottom row */
 
-// Q + J = copy
-ZMK_COMBO(copy,  &kp LC(INS),  26 27,  BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+// M + W = copy
+ZMK_COMBO(copy,  &kp LC(INS),  31 32,  BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
-// Q + K = cut (skip J)
-ZMK_COMBO(cut,   &kp LC(X),    26 28,  BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+// M + V = cut (skip W)
+ZMK_COMBO(cut,   &kp LC(X),    31 33,  BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
-// J + K = paste
-ZMK_COMBO(paste, &kp LS(INS),  27 28,  BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+// W + V = paste
+ZMK_COMBO(paste, &kp LS(INS),  32 33,  BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
