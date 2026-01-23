@@ -173,14 +173,8 @@ layers:
     - ''
     - ''
 combos:
-  - p: [1, 2]
-    k: Esc
-    l: [Combos]
   - p: [2, 3]
     k: Smart Mouse
-    l: [Combos]
-  - p: [13, 14]
-    k: Tab
     l: [Combos]
   - p: [14, 15]
     k: Leader
@@ -190,24 +184,18 @@ combos:
     l: [Combos]
     a: bottom
     d: true
-  - p: [7, 8]
-    k: Bspc
-    l: [Combos]
-  - p: [8, 9]
-    k: Del
-    l: [Combos]
   - p: [16, 19]
     k: Caps Word
     l: [Combos]
-  - p: [26, 27]
+  - p: [31, 32]
     k: Copy
     l: [Combos]
-  - p: [26, 28]
+  - p: [31, 33]
     k: Cut
     l: [Combos]
     a: bottom
     o: 0.15
-  - p: [27, 28]
+  - p: [32, 33]
     k: Paste
     l: [Combos]
 draw_config:
