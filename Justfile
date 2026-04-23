@@ -92,7 +92,7 @@ draw: _check_yq_version
     # Rename conditional layers to show how they are reached (FUN + NUM, NAV + SYM)
     yq -Yi '.layers = (.layers | to_entries | map(if .key == "Sys" then .key = "Sys (FUN + NUM)" elif .key == "Media" then .key = "Media (NAV + SYM)" else . end) | from_entries)' "{{ draw }}/base.yaml"
     # Reorder layers: Num/Sym/Combos after Base, Nav/Fun, then alternates, then extras
-    yq -Yi '.layers = {Base: .layers.Base, Num: .layers.Num, Sym: .layers.Sym, Combos: .layers.Combos, Nav: .layers.Nav, Fun: .layers.Fun, Qwerty: .layers.Qwerty, Game: .layers.Game, Gnum: .layers.Gnum, Mouse: .layers.Mouse, Numpad: .layers.Numpad, Intl: .layers.Intl, "Sys (FUN + NUM)": .layers."Sys (FUN + NUM)", "Media (NAV + SYM)": .layers."Media (NAV + SYM)"}' "{{ draw }}/base.yaml"
+    yq -Yi '.layers = {Base: .layers.Base, Num: .layers.Num, Sym: .layers.Sym, Combos: .layers.Combos, Nav: .layers.Nav, Fun: .layers.Fun, Dvorak: .layers.Dvorak, Game: .layers.Game, Gnum: .layers.Gnum, Mouse: .layers.Mouse, Numpad: .layers.Numpad, Intl: .layers.Intl, "Sys (FUN + NUM)": .layers."Sys (FUN + NUM)", "Media (NAV + SYM)": .layers."Media (NAV + SYM)"}' "{{ draw }}/base.yaml"
     # Mark held key for Numpad layer
     yq -Yi '.layers.Numpad[18] = {type: "held"}' "{{ draw }}/base.yaml"
     # Mark held key for Gnum layer

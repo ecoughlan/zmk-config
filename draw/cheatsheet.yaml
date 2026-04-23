@@ -2,40 +2,40 @@ layout: {zmk_keyboard: base}
 layers:
   Base:
     - ''
-    - ''''
-    - ','
-    - .
-    - P
+    - Q
+    - W
+    - E
+    - R
+    - T
     - Y
+    - U
+    - I
+    - O
+    - P
+    - ''
+    - ''
+    - A
+    - S
+    - D
     - F
     - G
-    - C
-    - R
-    - L
-    - ''
-    - ''
-    - {t: A, h: Gui}
-    - {t: O, h: Alt}
-    - {t: E, h: Ctrl}
-    - {t: U, h: Shift}
-    - I
-    - D
-    - {t: H, h: Shift}
-    - {t: T, h: Ctrl}
-    - {t: N, h: Alt}
-    - {t: S, h: Gui}
-    - ''
-    - ''
-    - /
-    - Q
+    - H
     - J
     - K
-    - X
+    - L
+    - ;
+    - ''
+    - ''
+    - {t: Z, h: Gui}
+    - {t: X, h: Alt}
+    - {t: C, h: Ctrl}
+    - {t: V, h: Shift}
     - B
-    - M
-    - W
-    - V
-    - Z
+    - N
+    - {t: M, h: Shift}
+    - {t: ',', h: Ctrl}
+    - {t: ., h: Alt}
+    - {t: /, h: Gui}
     - ''
     - {t: Esc, h: Intl}
     - {t: Spc, h: NAV, s: Sticky ⇧}
@@ -45,11 +45,11 @@ layers:
     - {t: Bspc, h: FUN}
   Num:
     - ''
-    - '['
+    - '-'
     - '7'
     - '8'
     - '9'
-    - ']'
+    - '='
     - {type: trans}
     - {t: Shift, h: sticky}
     - {t: Ctrl, h: sticky}
@@ -57,11 +57,11 @@ layers:
     - {t: Gui, h: sticky}
     - ''
     - ''
-    - ;
+    - '['
     - '4'
     - '5'
     - '6'
-    - '='
+    - ']'
     - Numpad
     - {t: Shift, h: sticky}
     - {t: Ctrl, h: sticky}
@@ -75,24 +75,24 @@ layers:
     - '3'
     - \
     - {type: trans}
-    - {type: trans}
-    - {type: trans}
-    - {type: trans}
-    - {type: trans}
+    - {t: Shift, h: sticky}
+    - {t: Ctrl, h: sticky}
+    - {t: Alt, h: sticky}
+    - {t: Gui, h: sticky}
     - ''
-    - .
+    - NUBS
     - '0'
-    - '-'
+    - ''''
     - {type: trans}
     - {type: held}
     - {type: trans}
   Sym:
     - ''
-    - '{'
+    - _
     - '&'
     - '*'
     - (
-    - '}'
+    - +
     - {type: trans}
     - {t: Shift, h: sticky}
     - {t: Ctrl, h: sticky}
@@ -100,11 +100,11 @@ layers:
     - {t: Gui, h: sticky}
     - ''
     - ''
-    - ':'
+    - ']'
     - $
     - '%'
     - ^
-    - +
+    - '}'
     - {t: Media, type: layer-activator}
     - {t: Shift, h: sticky}
     - {t: Ctrl, h: sticky}
@@ -118,10 +118,10 @@ layers:
     - '#'
     - '|'
     - {type: trans}
-    - {type: trans}
-    - {type: trans}
-    - {type: trans}
-    - {type: trans}
+    - {t: Shift, h: sticky}
+    - {t: Ctrl, h: sticky}
+    - {t: Alt, h: sticky}
+    - {t: Gui, h: sticky}
     - ''
     - (
     - )
@@ -187,15 +187,15 @@ combos:
   - p: [16, 19]
     k: Caps Word
     l: [Combos]
-  - p: [31, 32]
+  - p: [7, 8]
     k: Copy
     l: [Combos]
-  - p: [31, 33]
+  - p: [7, 9]
     k: Cut
     l: [Combos]
     a: bottom
     o: 0.15
-  - p: [32, 33]
+  - p: [8, 9]
     k: Paste
     l: [Combos]
 draw_config:

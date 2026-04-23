@@ -39,8 +39,8 @@ parse_config:
     "DE_EURO": "€"
     "&sl MEDIA": { "t": "Media", "type": "layer-activator" }
 
-    "&to BASE": { "t": "Dvorak", "type": "layer-activator" }
-    "&to QWERTY": { "t": "Qwerty", "type": "layer-activator" }
+    "&to BASE": { "t": "Qwerty", "type": "layer-activator" }
+    "&to DVORAK": { "t": "Dvorak", "type": "layer-activator" }
     "&to GAME": { "t": "Game", "type": "layer-activator" }
     "&gnum_sft GNUM LSHFT": { "t": "Sticky ⇧", "h": "GNUM", "s": "Hold ⇧" }
 
